@@ -54,6 +54,7 @@ in {
       terraform-ls
       lua-language-server
       yaml-language-server
+      tailwindcss-language-server
       unstable.vue-language-server
       unstable.nodePackages.prettier
       nodePackages.typescript-language-server
@@ -90,6 +91,13 @@ in {
           args = ["check" "--stdin" "--format=json"];
         };
         deadnix.command = "deadnix";
+        tailwindcss = {
+          command = "tailwindcss-language-server";
+          args = ["--stdio"];
+          config = {
+            userLanguages = {tsx = "tsx";};
+          };
+        };
         typescript-language-server.config = {
           plugins = [
             {
@@ -121,7 +129,7 @@ in {
         {
           name = "tsx";
           auto-format = true;
-          language-servers = ["typescript-language-server" "vscode-eslint-language-server"];
+          language-servers = ["tailwindcss" "typescript-language-server" "vscode-eslint-language-server"];
           formatter = {
             command = "prettier";
             args = ["--parser" "typescript"];
