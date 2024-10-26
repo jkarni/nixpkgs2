@@ -129,7 +129,7 @@ in {
         {
           name = "tsx";
           auto-format = true;
-          language-servers = ["tailwindcss" "typescript-language-server" "vscode-eslint-language-server"];
+          language-servers = ["typescript-language-server" "tailwindcss" "vscode-eslint-language-server"];
           formatter = {
             command = "prettier";
             args = ["--parser" "typescript"];
