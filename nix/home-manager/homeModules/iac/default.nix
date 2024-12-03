@@ -7,7 +7,6 @@
   programs.zsh = {
     oh-my-zsh.plugins = [
       "terraform"
-      "vault"
     ];
     zplug.plugins = [
       {

@@ -6,6 +6,7 @@
     extraConfig = ''
       return {
         enable_wayland = false,
+        front_end = "WebGpu",
         color_scheme = "Catppuccin Macchiato",
         font = wezterm.font 'FiraCode Nerd Font Mono',
         font_size = 16.0,

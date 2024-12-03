@@ -14,6 +14,4 @@
     trackpad.Dragging = true;
     NSGlobalDomain.AppleShowScrollBars = "WhenScrolling";
   };
-
-  security.pam.touchIdAuth.enable = true;
 }

@@ -47,7 +47,6 @@ in {
       pkgs = cell.nixpkgs.default;
       modules =
         [
-          cells.pam-tid.darwinModules.default
           home-manager.darwinModules.home-manager
           (cell.darwinModules.home homeModules)
           cell.darwinModules.default

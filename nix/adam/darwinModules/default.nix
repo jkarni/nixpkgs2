@@ -15,7 +15,7 @@ in {
         trusted-users = ["root" username];
       };
       extraOptions = ''
-        experimental-features = nix-command flakes repl-flake
+        experimental-features = nix-command flakes
       '';
       registry = {
         nixpkgs.flake = inputs.nixpkgs;
@@ -29,7 +29,6 @@ in {
     programs.zsh.enable = true;
     environment = {
       shells = [pkgs.zsh];
-      loginShell = pkgs.zsh;
     };
 
     users.users.${username} = {
