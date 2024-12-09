@@ -38,6 +38,7 @@ in {
       cli
       iac
       k8s
+      helix
       raycast
       wezterm
       ide-full
