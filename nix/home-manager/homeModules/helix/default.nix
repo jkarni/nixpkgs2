@@ -48,6 +48,7 @@ in {
       nil
       delve
       gopls
+      kdlfmt
       deadnix
       alejandra
       eslint-ls
@@ -138,6 +139,14 @@ in {
         {
           name = "vue";
           language-servers = ["typescript-language-server" "vuels"];
+        }
+        {
+          name = "kdl";
+          auto-format = true;
+          formatter = {
+            command = "kdlfmt";
+            args = [ "format" "-" ];
+          };
         }
       ];
     };
