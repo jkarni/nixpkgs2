@@ -51,7 +51,7 @@ in {
       kdlfmt
       deadnix
       alejandra
-      # eslint-ls
+      eslint-ls
       terraform-ls
       lua-language-server
       yaml-language-server
@@ -82,6 +82,12 @@ in {
           render = {
             tab = "all";
           };
+        };
+
+        end-of-line-diagnostics = "hint";
+        inline-diagnostics = {
+          cursor-line = "error";
+          other-lines = "error";
         };
       };
     };
