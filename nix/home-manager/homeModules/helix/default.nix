@@ -51,7 +51,7 @@ in {
       kdlfmt
       deadnix
       alejandra
-      eslint-ls
+      # eslint-ls
       terraform-ls
       lua-language-server
       yaml-language-server
@@ -138,14 +138,19 @@ in {
         }
         {
           name = "vue";
-          language-servers = ["typescript-language-server" "vuels"];
+          language-servers = ["typescript-language-server" "vscode-eslint-language-server" "vuels" "efm"];
+          auto-format = true;
+          formatter = {
+            command = "prettier";
+            args = ["--parser" "vue"];
+          };
         }
         {
           name = "kdl";
           auto-format = true;
           formatter = {
             command = "kdlfmt";
-            args = [ "format" "-" ];
+            args = ["format" "-"];
           };
         }
       ];
