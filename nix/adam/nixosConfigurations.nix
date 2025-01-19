@@ -43,6 +43,7 @@ in {
       cli
       k8s
       charm
+      helix
       wezterm
       hyprland
       ide-full
@@ -54,6 +55,7 @@ in {
       ssh
       sops
       hlsdl
+      minio
       podman
       netdata
       hyprland
