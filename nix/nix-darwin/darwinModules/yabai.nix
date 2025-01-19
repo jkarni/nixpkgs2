@@ -1,7 +1,6 @@
-{unstable, ...}: {
+{...}: {
   services.yabai = {
     enable = true;
-    package = unstable.yabai;
     enableScriptingAddition = true;
     config = {
       layout = "bsp";
@@ -33,6 +32,7 @@
       yabai -m rule --add app="^iTerm2$" manage=off
       yabai -m rule --add app="^WezTerm$" manage=off
       yabai -m rule --add app="^1Password" manage=off
+      yabai -m rule --add app="Raycast" manage=off
 
       # New window spawns to the right if vertical split, or bottom if horizontal split
       yabai -m config focus_follows_mouse autofocus

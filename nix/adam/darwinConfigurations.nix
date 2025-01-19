@@ -26,7 +26,6 @@ in {
     darwinModules = with darwinModules; [
       fonts
       preferences
-      skhd
       yabai
     ];
   };
