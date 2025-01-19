@@ -1,4 +1,4 @@
 {username, ...}: {
-  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.enable = false;
   users.users.${username}.extraGroups = ["audio"];
 }

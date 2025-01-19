@@ -1,5 +1,9 @@
-{ pkgs, unstable, inputs, ... }:
-let
+{
+  pkgs,
+  unstable,
+  inputs,
+  ...
+}: let
   catppuccin-rofi = pkgs.fetchFromGitHub {
     owner = "catppuccin";
     repo = "rofi";
@@ -13,8 +17,7 @@ let
     rev = "99a88fd";
     sha256 = "sha256-07B5QmQmsUKYf38oWU3+2C6KO4JvinuTwmW1Pfk8CT8=";
   };
-in
-{
+in {
   wayland.windowManager.hyprland = {
     enable = true;
     sourceFirst = true;
@@ -24,7 +27,7 @@ in
         "hyprpaper"
       ];
 
-      source = [ (catppuccin-hyprland + "/themes/macchiato.conf") ];
+      source = [(catppuccin-hyprland + "/themes/macchiato.conf")];
 
       general = {
         gaps_in = 5;
@@ -51,42 +54,41 @@ in
       };
 
       "$mod" = "SUPER";
-      bind = [
-        "$mod ALT, space, exec, wezterm"
-        "$mod, space, exec, rofi -show drun"
-        "$mod, escape, exec, hyprlock"
-        ", XF86AudioRaiseVolume, exec, pamixer --increase 5"
-        ", XF86AudioLowerVolume, exec, pamixer --decrease 5"
-        ", XF86AudioMute, exec, pamixer --toggle-mute"
+      bind =
+        [
+          "$mod ALT, space, exec, wezterm"
+          "$mod, space, exec, rofi -show drun"
+          "$mod, escape, exec, hyprlock"
+          ", XF86AudioRaiseVolume, exec, pamixer --increase 5"
+          ", XF86AudioLowerVolume, exec, pamixer --decrease 5"
+          ", XF86AudioMute, exec, pamixer --toggle-mute"
 
-        "$mod, M, exit"
-        "$mod, W, killactive"
-        "$mod, F, fullscreen"
-        "$mod, V, togglefloating"
-        "ALT SHIFT, return, layoutmsg, swapwithmaster auto"
+          "$mod, M, exit"
+          "$mod, W, killactive"
+          "$mod, F, fullscreen"
+          "$mod, V, togglefloating"
+          "ALT SHIFT, return, layoutmsg, swapwithmaster auto"
 
-        "$mod, H, movefocus, l"
-        "$mod, J, movefocus, d"
-        "$mod, K, movefocus, u"
-        "$mod, L, movefocus, r"
-      ] ++ (
-        builtins.concatLists (builtins.genList
-          (
-            x:
-            let
-              ws =
-                let
+          "$mod, H, movefocus, l"
+          "$mod, J, movefocus, d"
+          "$mod, K, movefocus, u"
+          "$mod, L, movefocus, r"
+        ]
+        ++ (
+          builtins.concatLists (builtins.genList
+            (
+              x: let
+                ws = let
                   c = (x + 1) / 10;
                 in
-                builtins.toString (x + 1 - (c * 10));
-            in
-            [
-              "$mod, ${ws}, workspace, ${toString (x + 1)}"
-              "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
-            ]
-          )
-          10)
-      );
+                  builtins.toString (x + 1 - (c * 10));
+              in [
+                "$mod, ${ws}, workspace, ${toString (x + 1)}"
+                "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+              ]
+            )
+            10)
+        );
 
       bindm = [
         "$mod, mouse:272, resizewindow"
@@ -104,7 +106,7 @@ in
     };
   };
 
-  home.packages = with pkgs; with gnome; [
+  home.packages = with pkgs; [
     fd
     bun
     dart-sass
@@ -133,7 +135,7 @@ in
     pamixer
     spotify
     cliphist
-    gnome.eog
+    eog
     hyprpaper
     playerctl
     hyprpicker
@@ -149,9 +151,9 @@ in
     theme = {
       name = "Catppuccin-Macchiato-Compact-Pink-Dark";
       package = pkgs.catppuccin-gtk.override {
-        accents = [ "mauve" "pink" ];
+        accents = ["mauve" "pink"];
         size = "compact";
-        tweaks = [ "rimless" "black" ];
+        tweaks = ["rimless" "black"];
         variant = "macchiato";
       };
     };

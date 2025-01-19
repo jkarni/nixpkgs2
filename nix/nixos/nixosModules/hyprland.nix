@@ -1,8 +1,8 @@
-{ pkgs
-, unstable
-, ...
-}:
-let
+{
+  pkgs,
+  unstable,
+  ...
+}: let
   inherit (pkgs) stdenv fetchFromGitHub;
 
   sddm-catppuccin = stdenv.mkDerivation rec {
@@ -20,19 +20,18 @@ let
       cp -r src/* $out/share/sddm/themes/
     '';
   };
-in
-{
+in {
   environment.systemPackages = with pkgs; [
     tmux
     socat
     tigervnc
     brightnessctl
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
   ];
 
   fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" "FiraMono" "JetBrainsMono" "Iosevka" ]; })
+    (nerdfonts.override {fonts = ["FiraCode" "FiraMono" "JetBrainsMono" "Iosevka"];})
     montserrat
   ];
 
@@ -47,7 +46,7 @@ in
 
   programs._1password = {
     enable = true;
-    package = unstable._1password;
+    package = unstable._1password-cli;
   };
 
   programs._1password-gui = {
@@ -56,7 +55,7 @@ in
   };
 
   hardware = {
-    opengl.enable = true;
+    graphics.enable = true;
   };
 
   services.pipewire = {
