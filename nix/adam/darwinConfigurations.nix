@@ -18,7 +18,7 @@ in {
       ide-full
       raycast
       syncthing
-      wezterm
+      ghostty
       mc
       sops-bin
       helix
@@ -38,8 +38,8 @@ in {
       iac
       k8s
       helix
+      ghostty
       raycast
-      wezterm
       ide-full
       syncthing
       cell.homeModules.bridge

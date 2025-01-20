@@ -31,6 +31,7 @@
       yabai -m rule --add app="Fantastical" manage=off
       yabai -m rule --add app="^iTerm2$" manage=off
       yabai -m rule --add app="^WezTerm$" manage=off
+      yabai -m rule --add app="^Ghostty$" manage=off
       yabai -m rule --add app="^1Password" manage=off
       yabai -m rule --add app="Raycast" manage=off
 
