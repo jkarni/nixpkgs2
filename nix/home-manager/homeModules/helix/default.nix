@@ -61,7 +61,6 @@ in {
       nodePackages.typescript-language-server
     ];
     settings = {
-      theme = "catppuccin_macchiato_custom";
       editor = {
         bufferline = "multiple";
         cursorline = true;
@@ -160,20 +159,6 @@ in {
           };
         }
       ];
-    };
-    themes = {
-      catppuccin_macchiato_custom = {
-        inherits = "catppuccin_macchiato";
-        "ui.background" = {
-          fg = "text";
-        };
-        "diagnostic.unnecessary" = {
-          underline = {
-            color = "surface2";
-            style = "curl";
-          };
-        };
-      };
     };
   };
 }
