@@ -21,4 +21,8 @@ in {
 
   xdg.configFile."zellij/layouts/default.kdl".source = ./files/zellij-layout.kdl;
   xdg.configFile."zellij/layouts/default.swap.kdl".source = ./files/zellij-layout.swap.kdl;
+
+  xdg.configFile."ghostty/config".text = ''
+    command = ${pkgs.zellij}/bin/zellij attach --create
+  '';
 }

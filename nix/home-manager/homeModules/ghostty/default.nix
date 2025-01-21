@@ -13,5 +13,8 @@ in {
     font-family = FiraCode Nerd Font Mono
     background-opacity = 0.9
     background-blur-radius = 30
+    mouse-scroll-multiplier = 0.01
   '';
+
+  home.shellAliases.ghostty = "/Applications/Ghostty.app/Contents/MacOS/ghostty";
 }
