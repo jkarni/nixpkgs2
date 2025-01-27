@@ -28,7 +28,8 @@ in {
     ];
     darwinModules = with darwinModules; [
       fonts
-      yabai
+      # yabai
+      aerospace
       preferences
     ];
   };
