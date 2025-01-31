@@ -2,8 +2,10 @@
   inputs,
   cell,
 }: let
+  inherit (inputs.cells) themes;
   inherit (inputs.cells.home-manager) homeModules;
   inherit (inputs.cells.nixos) nixosModules;
+  windowsModules = inputs.cells.windows.nixosModules;
 in {
   roxie = cell.lib.mkNixosSystem {
     name = "roxie";
@@ -66,6 +68,23 @@ in {
       tailscale
       pulseaudio
       cell.hardwareProfiles.totoro
+    ];
+  };
+
+  redwin = cell.lib.mkNixosSystem {
+    name = "redwin";
+    username = "adam";
+    stateVersion = "24.05";
+    homeModules = with homeModules; [
+      cli
+      ide
+      helix
+      (themes.homeModules.catppuccin {flavor = "macchiato";})
+    ];
+    nixosModules = with windowsModules; [
+      wsl
+      wezterm
+      komorebi
     ];
   };
 }

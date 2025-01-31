@@ -17,6 +17,8 @@
 
     darwin.url = "github:lnl7/nix-darwin/nix-darwin-24.11";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
+    wsl.url = "github:nix-community/nixos-wsl/2405.5.4";
+    wsl.inputs.nixpkgs.follows = "nixpkgs";
 
     devenv.url = "github:cachix/devenv/v1.3.1";
     hlsdl.url = "github:adamgoose/hlsdl";
