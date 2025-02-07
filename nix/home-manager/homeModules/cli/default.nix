@@ -6,6 +6,7 @@
     ./zsh.nix
   ];
   home.packages = with pkgs; [
+    fx
     jq
     enc
     gum
@@ -18,6 +19,7 @@
     httpie
     rclone
     hostctl
+    jwt-cli
     neofetch
   ];
 
