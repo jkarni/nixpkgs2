@@ -24,6 +24,7 @@
     hlsdl.url = "github:adamgoose/hlsdl";
     put2aria.url = "github:adamgoose/put2aria";
     zjstatus.url = "github:dj95/zjstatus/v0.19.1";
+    helix.url = "github:helix-editor/helix";
   };
 
   outputs = {std, ...} @ inputs:
@@ -79,11 +80,13 @@
       "https://devenv.cachix.org"
       "https://hyprland.cachix.org"
       "https://cache.garnix.io"
+      "https://helix.cachix.org"
     ];
     extra-trusted-public-keys = [
       "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+      "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
     ];
   };
 }
