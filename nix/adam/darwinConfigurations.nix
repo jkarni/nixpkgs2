@@ -50,10 +50,9 @@ in {
       (themes.homeModules.catppuccin {flavor = "macchiato";})
     ];
     darwinModules = with darwinModules; [
-      skhd
       fonts
-      yabai
       netskope
+      aerospace
       preferences
     ];
   };

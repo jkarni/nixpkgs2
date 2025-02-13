@@ -24,6 +24,10 @@
           run = ["layout tiling"];
         }
         {
+          "if".app-id = "com.mosyle.macos.business";
+          run = ["layout floating"];
+        }
+        {
           "if".workspace = "1";
           run = ["move-node-to-workspace 2"];
         }
