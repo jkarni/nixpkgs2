@@ -1,9 +1,8 @@
 {
-  unstable,
+  pkgs,
   username,
   ...
 }: let
-  pkgs = unstable;
   cabundle = pkgs.cacert.override {
     extraCertificateFiles = [./netskope_ca.pem];
   };
@@ -18,7 +17,7 @@ in {
 
   home-manager.users.${username}.home.sessionVariables = {
     AWS_CA_BUNDLE = bundlePath;
-    NETSCKOPE_CA_BUNDLE = bundlePath;
+    NETSKOPE_CA_BUNDLE = bundlePath;
     NODE_EXTRA_CA_CERTS = bundlePath;
   };
 }
