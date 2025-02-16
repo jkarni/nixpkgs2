@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   unstable,
   ...
@@ -12,26 +13,33 @@
       enable-normalization-opposite-orientation-for-nested-containers = true;
 
       on-focused-monitor-changed = ["move-mouse monitor-lazy-center"];
-      on-window-detected = [
-        {
-          "if".app-id = "com.mitchellh.ghostty";
-          run = ["move-node-to-workspace 1"];
-          check-further-callbacks = false;
-        }
-        {
-          "if".app-id = "com.raycast.macos";
-          "if".window-title-regex-substring = "AI Chat";
-          run = ["layout tiling"];
-        }
-        {
-          "if".app-id = "com.mosyle.macos.business";
+      on-window-detected =
+        [
+          {
+            "if".app-id = "com.mitchellh.ghostty";
+            run = ["move-node-to-workspace 1"];
+          }
+          {
+            "if".workspace = "1";
+            run = ["move-node-to-workspace 2"];
+            check-further-callbacks = true;
+          }
+          {
+            "if".app-id = "com.raycast.macos";
+            "if".window-title-regex-substring = "AI Chat";
+            run = ["layout tiling"];
+          }
+        ]
+        ++ lib.forEach [
+          "com.apple.finder"
+          "com.1password.1password"
+          "com.mosyle.macos.business"
+          "com.flexibits.fantastical2.mac"
+          "com.cocoatech.PathFinder-setapp"
+        ] (x: {
+          "if".app-id = x;
           run = ["layout floating"];
-        }
-        {
-          "if".workspace = "1";
-          run = ["move-node-to-workspace 2"];
-        }
-      ];
+        });
 
       gaps = {
         inner.horizontal = 10;
