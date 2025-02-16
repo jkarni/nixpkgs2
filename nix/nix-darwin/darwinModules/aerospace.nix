@@ -8,7 +8,7 @@
     enable = true;
     package = unstable.aerospace;
     settings = {
-      accordion-padding = 150;
+      accordion-padding = 90;
       enable-normalization-flatten-containers = true;
       enable-normalization-opposite-orientation-for-nested-containers = true;
 
