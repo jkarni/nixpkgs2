@@ -1,0 +1,17 @@
+name: Run commands on different operating systems
+on:
+  push:
+    branches: [ "24.11" ]
+  pull_request:
+    branches: [ "24.11" ]
+
+jobs:
+  build:
+    name: adam@bridge
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v27
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - run: nix run .#darwin-rebuild -- build --flake .#adam@bridge

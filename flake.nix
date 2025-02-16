@@ -73,6 +73,13 @@
           ["adam" "nixosConfigurations"]
         ])
         .x86_64-linux;
+    }
+    // {
+      packages = {
+        aarch64-darwin = {
+          darwin-rebuild = inputs.darwin.packages.aarch64-darwin.darwin-rebuild;
+        };
+      };
     };
 
   nixConfig = {
